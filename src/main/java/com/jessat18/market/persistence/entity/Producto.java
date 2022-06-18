@@ -26,6 +26,12 @@ public class Producto {
 
     private Boolean estado;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    //A traves de esta relacion no vamos a borrar, actualizar o insertar una nueva categoria
+    //Para hacerlo, debemos hacerlo directamente en el entity Categoria
+    private Categoria categoria;
+
     public Long getIdProducto() {
         return idProducto;
     }

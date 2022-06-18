@@ -1,6 +1,7 @@
 package com.jessat18.market.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -13,6 +14,11 @@ public class Categoria {
     private String descripcion;
 
     private Boolean estado;
+
+    @OneToMany(mappedBy = "categoria")
+    //mappedBy por quien esta mappeado o que relacion respalda este nuevo atributo
+    //categoria: nombre de la variable con la que lo creamos en categoria
+    private List<Producto> productos;
 
     public Long getIdCategoria() {
         return idCategoria;
