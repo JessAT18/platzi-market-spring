@@ -5,6 +5,7 @@ import com.jessat18.market.domain.repository.ProductRepository;
 import com.jessat18.market.persistence.crud.ProductoCrudRepository;
 import com.jessat18.market.persistence.entity.Producto;
 import com.jessat18.market.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,7 +15,11 @@ import java.util.Optional;
 //Indicamos a Spring que esta clase se encarga de interactuar con la base de datos.
 //Component es una generalización de este tipo de anotaciones
 public class ProductoRepository implements ProductRepository {
+    @Autowired
+    //Al ser un componente de Spring, podemos utilizar Autowired
     private ProductoCrudRepository productoCrudRepository;
+
+    @Autowired
     private ProductMapper mapper;
 
     @Override
